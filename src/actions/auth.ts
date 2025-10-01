@@ -33,6 +33,8 @@ export async function signup(
   prevState: SignupState,
   formData: FormData
 ): Promise<SignupState> {
+  const cookieStore = await cookies();
+
   const validatedFields = signupSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
@@ -53,7 +55,7 @@ export async function signup(
     email: validatedFields.data.email
   }
 
-  cookies().set("session", JSON.stringify(sessionData), {
+  cookieStore().set("session", JSON.stringify(sessionData), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     maxAge: 60 * 60 * 24 * 7, // One week
@@ -83,6 +85,8 @@ export async function login(
   prevState: LoginState,
   formData: FormData
 ): Promise<LoginState> {
+    const cookieStore = await cookies();
+
   const validatedFields = loginSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
@@ -105,7 +109,7 @@ export async function login(
     email: email
   }
 
-  cookies().set("session", JSON.stringify(sessionData), {
+  cookieStore().set("session", JSON.stringify(sessionData), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     maxAge: 60 * 5, // 5 minutes to complete 2FA
@@ -128,6 +132,9 @@ export type VerifyState = {
 };
 
 export async function verifyTwoFactor(prevState: VerifyState, formData: FormData): Promise<VerifyState> {
+
+  const cookieStore = await cookies();
+
   const validatedFields = verifySchema.safeParse(
     Object.fromEntries(formData.entries())
   );
@@ -139,7 +146,7 @@ export async function verifyTwoFactor(prevState: VerifyState, formData: FormData
     };
   }
   
-  const sessionCookie = cookies().get("session");
+  const sessionCookie = cookieStore().get("session");
   if (!sessionCookie) {
     return redirect("/");
   }
@@ -155,7 +162,7 @@ export async function verifyTwoFactor(prevState: VerifyState, formData: FormData
       pending2FA: false,
     };
 
-    cookies().set("session", JSON.stringify(fullyLoggedInSession), {
+    cookieStore().set("session", JSON.stringify(fullyLoggedInSession), {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24 * 7, // One week
@@ -170,6 +177,7 @@ export async function verifyTwoFactor(prevState: VerifyState, formData: FormData
 
 
 export async function logout() {
-  cookies().delete("session");
+  const cookieStore = await cookies();
+  cookieStore().delete("session");
   redirect("/");
 }

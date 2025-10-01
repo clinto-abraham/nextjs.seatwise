@@ -1,8 +1,10 @@
 
 import { NextResponse, type NextRequest } from 'next/server'
- 
-export function middleware(request: NextRequest) {
-  const sessionCookie = request.cookies.get('session');
+ import { cookies } from 'next/headers';
+
+export async function middleware(request: NextRequest) {
+  const cookieStore = await cookies();
+  const sessionCookie = cookieStore.get('session');
   const { pathname } = request.nextUrl;
 
   const protectedRoutes = ['/dashboard', '/events', '/booking', '/admin', '/my-bookings', '/donation', '/support', '/privacy', '/terms', '/grievances', '/community'];
