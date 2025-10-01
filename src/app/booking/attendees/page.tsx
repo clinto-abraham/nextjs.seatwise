@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -93,6 +93,7 @@ export default function AttendeesPage() {
 
     if (!seats) {
         return (
+            <Suspense fallback={<div>Loading...</div>}>
             <AuthenticatedLayout>
                 <div className="container mx-auto max-w-4xl px-4 py-12 text-center">
                     <h1 className="font-headline text-3xl font-bold mb-4">No seats selected</h1>
@@ -102,6 +103,7 @@ export default function AttendeesPage() {
                     </Button>
                 </div>
             </AuthenticatedLayout>
+            </Suspense>
         );
     }
     
@@ -117,6 +119,7 @@ export default function AttendeesPage() {
         ];
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <AuthenticatedLayout>
             <div className="container mx-auto max-w-4xl px-4 py-12">
                 <div className="flex items-center gap-4 mb-8">
@@ -266,6 +269,7 @@ export default function AttendeesPage() {
                 </Form>
             </div>
         </AuthenticatedLayout>
+        </Suspense>
     );
 }
 

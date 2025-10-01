@@ -10,7 +10,7 @@ import { Check, Home, User, Ticket, BedDouble, Utensils, Printer } from "lucide-
 import Link from "next/link";
 import { useSearchParams, notFound } from "next/navigation";
 import type { Event, HotelRoom } from "@/lib/types";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Separator } from "@/components/ui/separator";
 
 type BookingDetails = {
@@ -117,6 +117,7 @@ export default function ConfirmationPage() {
     };
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <AuthenticatedLayout>
             <div className="container mx-auto max-w-3xl px-4 py-12 print:py-0">
                 <div className="flex flex-col items-center text-center print:hidden">
@@ -195,5 +196,6 @@ export default function ConfirmationPage() {
                 </div>
             </div>
         </AuthenticatedLayout>
+        </Suspense>
     )
 }
