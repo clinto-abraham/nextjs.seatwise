@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "login-hero",
+      "description": "A stylish and modern hotel lobby with comfortable seating.",
+      "imageUrl": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "hotel lobby"
+    },
+    {
+      "id": "event-concert",
+      "description": "A vibrant concert with a large crowd and colorful stage lights.",
+      "imageUrl": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "concert crowd"
+    },
+    {
+      "id": "event-conference",
+      "description": "A professional business conference with an attentive audience.",
+      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "business conference"
+    },
+    {
+      "id": "event-sports",
+      "description": "An exciting basketball game in a packed stadium.",
+      "imageUrl": "https://images.unsplash.com/photo-1579952516518-6ae372a3c7a3?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "basketball game"
+    },
+    {
+      "id": "hotel-luxury",
+      "description": "A luxurious hotel room with a king-size bed and stunning city views.",
+      "imageUrl": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "luxury hotel"
+    },
+    {
+      "id": "hotel-boutique",
+      "description": "A charming boutique hotel room with unique decor and a cozy atmosphere.",
+      "imageUrl": "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1925&auto=format&fit=crop",
+      "imageHint": "boutique hotel"
+    },
+    {
+      "id": "hotel-budget",
+      "description": "A clean and modern budget-friendly hotel room.",
+      "imageUrl": "https://images.unsplash.com/photo-1595576502339-a0349b4d13c7?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "budget hotel"
+    }
+  ]
+}
