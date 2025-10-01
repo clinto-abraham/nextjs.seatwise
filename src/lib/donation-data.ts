@@ -1,5 +1,5 @@
 
-import type { Donation, DonationSpendingDetail } from './types.ts';
+import type { Donation, DonationSpendingDetail } from './types';
 
 export const donationSpendingDetails: DonationSpendingDetail[] = [
   {

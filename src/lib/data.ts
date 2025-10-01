@@ -1,6 +1,6 @@
 
 import type { Event, HotelRoom, SeatingLayout, UserBooking } from './types';
-import { placeHolderImages } from './placeholder-images.ts';
+import { placeHolderImages } from './placeholder-images';
 
 export const events: Event[] = [
   {
@@ -49,6 +49,7 @@ export const events: Event[] = [
     description: 'Experience the thrilling conclusion of the basketball season as the Titans face off against the Knights. Witness every slam dunk, three-pointer, and buzzer-beater in this high-stakes championship final.',
     date: '2024-11-05',
     time: '18:00',
+    location: 'Metropolitan Convention Center',
     timezone: 'Europe/Berlin',
     images: [
       "https://images.unsplash.com/photo-1515523110800-9415d16b84e8?q=80&w=2074&auto=format&fit=crop",

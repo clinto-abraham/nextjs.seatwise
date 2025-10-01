@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 94.1%; /* #f0f0f0 */
@@ -21,7 +22,8 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
+    /* --border: 0 0% 89.8%; */
+    --border: 214.3 31.8% 91.4%;
     --input: 0 0% 89.8%;
     --ring: 195 100% 50%; /* Original --primary for ring */
     --chart-1: 12 76% 61%;
@@ -48,7 +50,8 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
+    /* --border: 0 0% 14.9%; */
+    --border: 217.2 32.6% 17.5%;
     --input: 0 0% 14.9%;
     --ring: 195 100% 50%;
   }
@@ -61,4 +64,31 @@
   body {
     @apply bg-background text-foreground;
   }
+  .bg-grid-primary {
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / var(--tw-bg-opacity)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / var(--tw-bg-opacity)) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+  }
+}
+
+@layer utilities {
+    .animated-gradient-text {
+        background: linear-gradient(
+            300deg,
+            hsl(var(--primary)),
+            hsl(var(--accent)),
+            hsl(var(--primary))
+        );
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradient-animation 4s ease infinite;
+    }
+    @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 }

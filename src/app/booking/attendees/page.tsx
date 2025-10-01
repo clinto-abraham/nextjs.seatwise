@@ -47,7 +47,7 @@ export default function AttendeesPage() {
         mode: "onBlur"
     });
 
-    const { fields, replace, control } = useFieldArray({
+    const { fields, replace } = useFieldArray({
         control: form.control,
         name: "attendees"
     });
@@ -138,7 +138,7 @@ export default function AttendeesPage() {
                                     <CardContent className="space-y-6">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <FormField
-                                                control={control}
+                                                control={form.control}
                                                 name={`attendees.${index}.name`}
                                                 rules={{ required: 'Full name is required.' }}
                                                 render={({ field }) => (
@@ -152,7 +152,7 @@ export default function AttendeesPage() {
                                                 )}
                                             />
                                             <FormField
-                                                control={control}
+                                                control={form.control}
                                                 name={`attendees.${index}.contact`}
                                                 rules={{ required: 'Contact number is required.' }}
                                                 render={({ field }) => (
@@ -166,7 +166,7 @@ export default function AttendeesPage() {
                                                 )}
                                             />
                                              <FormField
-                                                control={control}
+                                                control={form.control}
                                                 name={`attendees.${index}.email`}
                                                 render={({ field }) => (
                                                     <FormItem>
@@ -179,7 +179,7 @@ export default function AttendeesPage() {
                                                 )}
                                             />
                                              <FormField
-                                                control={control}
+                                                control={form.control}
                                                 name={`attendees.${index}.address`}
                                                 render={({ field }) => (
                                                     <FormItem>
@@ -197,7 +197,7 @@ export default function AttendeesPage() {
                                             <div>
                                                 <Label className="flex items-center gap-2 mb-2 font-semibold"><BedDouble className="h-5 w-5 text-primary"/> Stay Selection (Optional)</Label>
                                                  <Controller
-                                                    control={control}
+                                                    control={form.control}
                                                     name={`attendees.${index}.stayId`}
                                                     render={({ field }) => (
                                                         <Select
@@ -221,7 +221,7 @@ export default function AttendeesPage() {
                                                 <div>
                                                     <Label className="flex items-center gap-2 mb-2 font-semibold"><Utensils className="h-5 w-5 text-primary"/> Food Add-on (Optional)</Label>
                                                     <Controller
-                                                        control={control}
+                                                        control={form.control}
                                                         name={`attendees.${index}.foodDays`}
                                                         render={({ field }) => (
                                                             <Select
